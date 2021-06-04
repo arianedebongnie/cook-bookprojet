@@ -1,0 +1,120 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/php_simple/app/session.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'].'/php_simple/components/headers.php') ?>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="/php_simple/resources/css/all.min.css" rel="stylesheet">
+<link href="/php_simple/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="/php_simple/resources/css/style.css" rel="stylesheet">
+<script src="/php_simple/resources/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Connexion</title>
+</head>
+<script>
+
+</script>
+<body>
+  <div class="container">
+    <a class="navbar-brand" href="#">
+            <img src="image/LOGO.jpg" alt="">  
+            </a>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Se connecter
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
+          <li>
+              <div class="user-login-container">
+                  <div>
+                      <form class="form user-login-form" role="form" method="POST" accept-charset="UTF-8" action="<?php echo $_SERVER["PHP_SELF"];?>">
+                          <div class="form-group">
+                              <label class="sr-only" for="email">Email address</label>
+                              <input type="email" class="form-control <?php echo (isset($errors['email']) ? 'is-invalid' : '') ?>" id="email" placeholder="Email" name="email" aria-labelledby="validation-user-email" required>
+                              <div id="validation-user-email" class="invalid-feedback">
+                                  <?php echo (isset($errors['email']) ? $errors['email'] : '') ?>
+                              </div>
+                          </div>
+                          <div class="form-group mt-2">
+                              <label class="sr-only" for="password">Password</label>
+                              <input type="password" class="form-control <?php echo (isset($errors['password']) ? 'is-invalid' : '') ?>" id="password" name="password" placeholder="Mot de passe" aria-labelledby="validation-user-password" required>
+                              <div id="validation-user-password" class="invalid-feedback">
+                                  <?php echo (isset($errors['password']) ? $errors['password'] : '') ?>
+                              </div>
+                              <div class="help-block text-right"><a href="">Mot de passe oublié ?</a></div>
+                          </div>
+                          <!--                        <div class="form-group mt-2">-->
+                          <!--                            <label>-->
+                          <!--                                <input type="checkbox"> keep me logged-in-->
+                          <!--                            </label>-->
+                          <!--                        </div>-->
+                          <div class="form-group mt-2">
+                              <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+                          </div>
+                      </form>
+                  </div>
+                  <div>Mot de passe oublié</div>
+        <form method="post">
+            <?php
+                if (isset($er_mail)){
+            ?>
+                <div><?= $er_mail ?></div>
+            <?php   
+                }
+            ?>
+            <input type="email" placeholder="Adresse mail" name="mail" value="<?php if(isset($mail)){ echo $mail; }?>" required>
+            <button type="submit" name="oublie">Envoyer</button>
+        </form>
+                  <div class="bottom mt-2">
+                      Pas encore inscrit ? <a href="Pinscription.html"><b>Nous rejoindre</b></a>
+                  </div>
+              </div>
+          </li>
+      </ul>
+  </li>
+  <?php require_once($_SERVER['DOCUMENT_ROOT'].'/php_simple/components/navigation.php') ?>
+
+<main role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col pinned-articles articles">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col top-articles articles">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col top-users">
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/php_simple/components/footer.php') ?>
+</div>
+
+<tfoot>
+    <footer class="container mt-5">
+    <div class="row">
+        <div class="col d-flex justify-content-between">
+            <p>© 2017-2018 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+            <p class="float-right"><a href="#">Back to top</a></p>
+        </div>
+    </div>
+</footer>
+</tfoot>
+</td>
+</body>
+
+</html>
